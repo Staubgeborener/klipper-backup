@@ -267,12 +267,12 @@ fix(){
     loading_wheel "${Y}●{NC} Delete config_backup folder" &
     loading_pid=$!
     if [ ! -d "$HOME/$backup_folder" ]; then
-        echo -e "${R}● config_backup folder does exist${NC}\n"
+        echo -e "\r\033[K${R} config_backup folder does exist${NC}\n"
         kill $loading_pid
         exit
     fi
     rm -rf ~/config_backup
     kill $loading_pid
-    echo -e "${G}●${NC} Delete config_backup folder ${G}Done!${NC}\n"
+    echo -e "\r\033[K${G}●${NC} Delete config_backup folder ${G}Done!${NC}\n"
     exit
 }
