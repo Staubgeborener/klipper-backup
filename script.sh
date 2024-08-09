@@ -46,10 +46,15 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     -c|--commit_message)
-      shift
-      commit_message="$@"
-      commit_message_used=true
-      break
+      if  [[ -z "$2" || "$2" =~ ^- ]]; then
+          echo -e "\r\033[K${R}Error: commit message expected${NC}" >&2
+          exit 1
+      else
+          shift
+          commit_message="$2"
+          commit_message_used=true
+          break
+      fi
       ;;
     *)
       echo -e "\r\033[K${R}Unknown option: $1${NC}"
