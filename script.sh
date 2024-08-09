@@ -60,7 +60,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Check for updates
-[ $(git -C "$parent_path" rev-parse HEAD) = $(git -C "$parent_path" ls-remote $(git -C "$parent_path" rev-parse --abbrev-ref @{u} | sed 's/\// /g') | cut -f1) ] && echo -e "Klipper-backup is up to date\n" || echo -e "NEW klipper-backup version available!\n"
+[ $(git -C "$parent_path" rev-parse HEAD) = $(git -C "$parent_path" ls-remote $(git -C "$parent_path" rev-parse --abbrev-ref @{u} | sed 's/\// /g') | cut -f1) ] && echo -e "Klipper-backup is up to date\n" || echo -e "${Y}●${NC} Update for klipper-backup ${Y}Available!${NC}\n"
 
 # Check if .env is v1 version
 if [[ ! -v backupPaths ]]; then
